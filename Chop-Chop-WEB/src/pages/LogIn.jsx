@@ -16,7 +16,11 @@ function SignIn() {
   const handleChangePassword = (event) => { 
     updatePassword(event.target.value)
   }
-
+  const handleLogOut = (event) => {
+    alert('Sessió tancada correctament.');
+    window.location.href = '/'; // Redirigeix a la HomePage
+    // Falta tancar la sessió 
+  }
 
   return (
     <main>
@@ -38,7 +42,9 @@ function SignIn() {
         <div>
           {errorP && <p style={{margin: '1rem', color: 'red'}}>{errorP}</p>}
         </div>
-        
+        <div>
+            <button onClick={handleLogout} style={{ marginTop: '1rem' }}>Log Out</button>
+        </div>
     </main>
   )
 }
