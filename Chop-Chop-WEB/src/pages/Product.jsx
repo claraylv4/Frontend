@@ -84,9 +84,14 @@ function ProductPage() {
 
   useEffect(() => {
     if (products.length > 0) {
-      setPrice(products[0].price);
+      const product = products[0];
+      const finalPrice = product.discount > 0
+        ? product.price * (1 - product.discount / 100)
+        : product.price;
+      setPrice(Number(finalPrice.toFixed(2)));
     }
   }, [products]);
+  
 
   
 
